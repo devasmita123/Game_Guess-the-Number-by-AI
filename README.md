@@ -1,4 +1,4 @@
-# Game_Guess-the-Number-by-AI
+# Group RC_Guess-the-Number-by-AI
 
 The game involved in the provided code is a simple version of the "Guess the Number" game. Here's how it works:
 
