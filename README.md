@@ -11,13 +11,13 @@ The AI makes a guess by selecting a random number between the specified range (1
 # Feedback 
 The player provides feedback on the AI's guess. The feedback can be one of the following:
 
-    "H" (Too High): 
+"H" (Too High): 
     If the AI's guess is higher than the target number.
     
-    "L" (Too Low):
+"L" (Too Low):
     If the AI's guess is lower than the target number.
     
-    "C" (Correct):
+"C" (Correct):
     If the AI's guess is correct and matches the target number.
 
 # Key Components
