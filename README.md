@@ -1,126 +1,28 @@
 # Game_Guess-the-Number-by-AI
-# The code implements a "Guess the Number" game where the AI guesses a number within a range based on feedback from the player, aiming to minimize attempts.
-import random
 
-# Function to get AI's guess based on learned strategy
-def get_ai_guess(strategy, min_num, max_num):
-    if not strategy:
-        return random.randint(min_num, max_num)
-    valid_guesses = [(key, value) for key, value in strategy.items() if min_num <= key <= max_num]
-    if valid_guesses:
-        return max(valid_guesses, key=lambda x: x[1])[0]
-    return random.randint(min_num, max_num)
+The game involved in the provided code is a simple version of the "Guess the Number" game. Here's how it works:
 
-# Function to update AI's strategy based on the player's feedback
-def update_strategy(strategy, guess, feedback):
-    strategy[guess] = feedback
+# Initialization: 
+The game starts by generating a random target number between 1 and 100. This number is kept secret from the player (or the AI in this case).
 
-# Function to play the game
-def play_game():
-    min_num = 1
-    max_num = 100
-    target_number = random.randint(min_num, max_num)
-    strategy = {}
+# Player's Turn: 
+The AI makes a guess by selecting a random number between the specified range (1 to 100). This guess is printed to the console.
 
-    print("Welcome to Guess the Number!")
-    print(f"I'm thinking of a number between {min_num} and {max_num}.")
+# Feedback: 
+The player provides feedback on the AI's guess. The feedback can be one of the following:
 
-    while True:
-        ai_guess = get_ai_guess(strategy, min_num, max_num)
-        print(f"My guess is: {ai_guess}")
+    # "H" (Too High): 
+    If the AI's guess is higher than the target number.
+    
+    # "L" (Too Low):
+    If the AI's guess is lower than the target number.
+    
+    # "C" (Correct):
+    If the AI's guess is correct and matches the target number.
+    
+# Adjusting Strategy:
+Based on the feedback provided by the player, the AI adjusts its strategy for the next guess. If the guess was too high, the AI eliminates all numbers higher than the guess from its potential guesses. Similarly, if the guess was too low, the AI eliminates all numbers lower than the guess.
+Repeating Steps: Steps 2 to 4 are repeated until the AI correctly guesses the target number. Once the correct number is guessed, the game ends and a victory message is displayed.
 
-        feedback = input("Is my guess too high (H), too low (L), or correct (C)? ").upper()
-
-        if feedback == "C":
-            print("I guessed it right! Thanks for playing.")
-            break
-        elif feedback == "H":
-            max_num = ai_guess - 1
-        elif feedback == "L":
-            min_num = ai_guess + 1
-
-        update_strategy(strategy, ai_guess, feedback)
-
-        # Adjusting AI's knowledge based on the feedback
-        if feedback == "C":
-            # If the guess was correct, we don't need to adjust the strategy
-            pass
-        elif feedback == "H":
-            # If the guess was too high, update strategy to avoid higher numbers
-            for guess in list(strategy.keys()):
-                if guess > ai_guess:
-                    del strategy[guess]
-        elif feedback == "L":
-            # If the guess was too low, update strategy to avoid lower numbers
-            for guess in list(strategy.keys()):
-                if guess < ai_guess:
-                    del strategy[guess]
-
-# Main function
-def main():
-    play_game()
-
-if __name__ == "__main__":
-    main()
-import random
-
-# Function to get AI's guess based on learned strategy
-def get_ai_guess(strategy, min_num, max_num):
-    if not strategy:
-        return random.randint(min_num, max_num)
-    valid_guesses = [(key, value) for key, value in strategy.items() if min_num <= key <= max_num]
-    if valid_guesses:
-        return max(valid_guesses, key=lambda x: x[1])[0]
-    return random.randint(min_num, max_num)
-
-# Function to update AI's strategy based on the player's feedback
-def update_strategy(strategy, guess, feedback):
-    strategy[guess] = feedback
-
-# Function to play the game
-def play_game():
-    min_num = 1
-    max_num = 100
-    target_number = random.randint(min_num, max_num)
-    strategy = {}
-
-    print("Welcome to Guess the Number!")
-    print(f"I'm thinking of a number between {min_num} and {max_num}.")
-
-    while True:
-        ai_guess = get_ai_guess(strategy, min_num, max_num)
-        print(f"My guess is: {ai_guess}")
-
-        feedback = input("Is my guess too high (H), too low (L), or correct (C)? ").upper()
-
-        if feedback == "C":
-            print("I guessed it right! Thanks for playing.")
-            break
-        elif feedback == "H":
-            max_num = ai_guess - 1
-        elif feedback == "L":
-            min_num = ai_guess + 1
-
-        update_strategy(strategy, ai_guess, feedback)
-
-        # Adjusting AI's knowledge based on the feedback
-        if feedback == "C":
-            # If the guess was correct, we don't need to adjust the strategy
-            pass
-        elif feedback == "H":
-            # If the guess was too high, update strategy to avoid higher numbers
-            for guess in list(strategy.keys()):
-                if guess > ai_guess:
-                    del strategy[guess]
-        elif feedback == "L":
-            # If the guess was too low, update strategy to avoid lower numbers
-            for guess in list(strategy.keys()):
-                if guess < ai_guess:
-                    del strategy[guess]
-
-# Main function
-def main():
-    play_game()
-
-if __name__ == "__main__":
-    main()
+# Target:
+The goal of the game is for the AI to guess the target number within as few attempts as possible by learning from the feedback provided by the player after each guess. The AI's strategy evolves based on the feedback received, allowing it to make more informed guesses as the game progresses.
