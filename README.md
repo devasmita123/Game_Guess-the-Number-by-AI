@@ -2,25 +2,30 @@
 
 The game involved in the provided code is a simple version of the "Guess the Number" game. Here's how it works:
 
-# Initialization: 
+# Initialization 
 The game starts by generating a random target number between 1 and 100. This number is kept secret from the player (or the AI in this case).
 
-# Player's Turn: 
+# Player's Turn 
 The AI makes a guess by selecting a random number between the specified range (1 to 100). This guess is printed to the console.
 
-# Feedback: 
+# Feedback 
 The player provides feedback on the AI's guess. The feedback can be one of the following:
 
-    # "H" (Too High): 
+    "H" (Too High): 
     If the AI's guess is higher than the target number.
     
-    # "L" (Too Low):
+    "L" (Too Low):
     If the AI's guess is lower than the target number.
     
-    # "C" (Correct):
+    "C" (Correct):
     If the AI's guess is correct and matches the target number.
+
+# Key Components:
+ AI Guess Strategy:  The AI employs a strategy to determine its guesses, taking into account previously guessed numbers and feedback from the player.
+ Updating Strategy:  After each guess, the AI updates its strategy based on the player's feedback, refining its future guesses.
+ Gameplay Loop:  The game progresses through a loop where the AI makes guesses, receives feedback, adjusts its strategy, and repeats until it correctly guesses the number.
     
-# Adjusting Strategy:
+# Adjusting Strategy
 Based on the feedback provided by the player, the AI adjusts its strategy for the next guess. If the guess was too high, the AI eliminates all numbers higher than the guess from its potential guesses. Similarly, if the guess was too low, the AI eliminates all numbers lower than the guess.
 
 # Repeating Steps:
