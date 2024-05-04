@@ -22,7 +22,9 @@ The player provides feedback on the AI's guess. The feedback can be one of the f
     
 # Adjusting Strategy:
 Based on the feedback provided by the player, the AI adjusts its strategy for the next guess. If the guess was too high, the AI eliminates all numbers higher than the guess from its potential guesses. Similarly, if the guess was too low, the AI eliminates all numbers lower than the guess.
-Repeating Steps: Steps 2 to 4 are repeated until the AI correctly guesses the target number. Once the correct number is guessed, the game ends and a victory message is displayed.
+
+# Repeating Steps:
+Feedback and Adjustment of stratergy are repeated until the AI correctly guesses the target number. Once the correct number is guessed, the game ends and a victory message is displayed.
 
 # Target:
 The goal of the game is for the AI to guess the target number within as few attempts as possible by learning from the feedback provided by the player after each guess. The AI's strategy evolves based on the feedback received, allowing it to make more informed guesses as the game progresses.
